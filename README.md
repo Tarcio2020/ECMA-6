@@ -8,16 +8,16 @@ Criamos uma pasta src
 
 No arquivo package.json vamos alterar a parte scripts:
 
-    {
-  "scripts": {
-    "build": "babel src -d dist"
+      {
+    "scripts": {
+      "build": "babel src -d dist"
 
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.22.9",
-    "@babel/core": "^7.22.9"
+    },
+    "devDependencies": {
+      "@babel/cli": "^7.22.9",
+      "@babel/core": "^7.22.9"
+    }
   }
-}
 
 Comando:
 
