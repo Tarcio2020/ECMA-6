@@ -97,6 +97,11 @@ const AlunosDeBackEnd = alunos2.filter(function(item) {
 console.log(alunos2)
 console.log(AlunosDeBackEnd);
 
+//__________usando Arrow Function_____________//
+
+const alunosDoFront = (alunos) => alunos.curso === "Front-End";
+
+//_________________________________________________//
 const AlunosDefrontEnd = alunos2.filter(function(item) {
     return item.curso === "Front-End";
 })

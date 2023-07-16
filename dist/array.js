@@ -91,6 +91,14 @@ var AlunosDeBackEnd = alunos2.filter(function (item) {
 });
 console.log(alunos2);
 console.log(AlunosDeBackEnd);
+
+//__________usando Arrow Function_____________//
+
+var alunosDoFront = function alunosDoFront(alunos) {
+  return alunos.curso === "Front-End";
+};
+
+//_________________________________________________//
 var AlunosDefrontEnd = alunos2.filter(function (item) {
   return item.curso === "Front-End";
 });
