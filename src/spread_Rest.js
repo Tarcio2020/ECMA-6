@@ -44,3 +44,41 @@ let time = []
 time.push(...timesDeFutebolDeSaoPaulo,...timesDeFutebolDoRj)
 
 console.log(time)
+
+
+//___________________________________//
+
+const carroDaJulia = {
+    modelo: 'gol',
+    marca: 'vw',
+    motor: 1.6
+}
+
+const carroDaAna = {
+    ...carroDaJulia,
+    motor: 1.8
+}
+
+let carrosDasMeninas = [];
+carrosDasMeninas.push(carroDaAna, carroDaJulia);
+console.log(carrosDasMeninas);
+
+//________Desestruturação________//
+// acessar itens em arrays e objetos
+//acessar apenas o motor do carro da Ana
+
+//const motorDoCarroDaAna = carroDaAna.motor;
+const {motor: motorDoCarroDaAna} = carroDaAna;
+const {motor: motorDoCarroDaJulia} = carroDaJulia;
+
+console.log(motorDoCarroDaAna)
+console.log(motorDoCarroDaJulia)
+
+
+const [item1, item2, item3, ...outrosTimes] = timesDeFutebol;
+console.log(item1)
+console.log(item2)
+console.log(item3)
+console.log(outrosTimes)
+
+
