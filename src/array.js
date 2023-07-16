@@ -89,10 +89,56 @@ const fullStack = alunos2.some(function (item) {
 console.log(fullStack);
 
 //Para filtrar
-
+//Se vc colocar apenas um = não irá realizar o filtro direito.
 const AlunosDeBackEnd = alunos2.filter(function(item) {
     return item.curso === "Back-End";
 })
 
 console.log(alunos2)
 console.log(AlunosDeBackEnd);
+
+const AlunosDefrontEnd = alunos2.filter(function(item) {
+    return item.curso === "Front-End";
+})
+
+console.log(AlunosDefrontEnd);
+
+alunos2.push({
+    nome: 'Eminen',
+    curso: 'C#'
+})
+
+const AlunosDeBackEnddd = alunos2.filter(function(item) {
+    return item.curso != "Back-End";
+})
+
+console.log(AlunosDeBackEnddd);
+
+//______________++++Reduce++++_______________//
+// Podemos usar esse exemplo abaixo com um carrinho de compras.
+const numeross = [10, 20 ,50, 100, 200, 300, 1, 2, 3]
+
+const soma = numeross.reduce(function(acumulador, itemAtual) {
+    return acumulador += itemAtual
+}, 0);
+
+
+console.log(soma);
+
+
+//Usando o for para somar
+
+let somaComFor = 0;
+for (let i =0; i < numeross.length; i++) {
+    somaComFor +=numeross[i];
+}
+console.log(somaComFor);
+
+//Reduce com Strings
+
+const nomeDosAlunos = alunos2.reduce(function(acumulador, itemAtual){
+    acumulador+= `${itemAtual.nome} `;
+    return acumulador;
+}, ' ');
+
+console.log(nomeDosAlunos);
