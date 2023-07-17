@@ -36,4 +36,25 @@ Temos que criar um arquivo de configuração do Babel
 
 
 
-    
+__________________________________________
+___________WATCH__________________________
+
+No arquivo package
+
+    {
+    "scripts": {
+      "build": "babel src --watch -d dist"
+    },
+    "browserslist": "> 0.25%",
+    "devDependencies": {
+      "@babel/cli": "^7.22.9",
+      "@babel/core": "^7.22.9",
+      "@babel/preset-env": "^7.22.9"
+    }
+  }
+
+Damos o comando 
+
+  npm run build
+
+  __________________________________
