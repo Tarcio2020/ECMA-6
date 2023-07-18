@@ -21,8 +21,14 @@
         }
 
         recebeuAtaque() {
-            this.hp -=10;
+            this.#hp -=10;
         }
+
+        exibeHP() {
+            console.log(this.#hp)
+        }
+
+
     }
 
     class Pikachu extends Pokemon{
@@ -38,6 +44,7 @@
     pikachudoAsh.recebeuAtaque()
     pikachudoAsh.hp = 5000;
     pikachudoAsh.atacar()
+    pikachudoAsh.exibeHP()
     
     
     console.log(pikachudoAsh.hp)

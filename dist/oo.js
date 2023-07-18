@@ -15,6 +15,11 @@ function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _ty
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
+function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
+function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
 var _hp = /*#__PURE__*/new WeakMap();
 /*function Pokemon (nomeDoPokemon, tipoDoPokemon) {
     this.nome = nomeDoPokemon,
@@ -43,7 +48,12 @@ var Pokemon = /*#__PURE__*/function () {
   }, {
     key: "recebeuAtaque",
     value: function recebeuAtaque() {
-      this.hp -= 10;
+      _classPrivateFieldSet(this, _hp, _classPrivateFieldGet(this, _hp) - 10);
+    }
+  }, {
+    key: "exibeHP",
+    value: function exibeHP() {
+      console.log(_classPrivateFieldGet(this, _hp));
     }
   }]);
   return Pokemon;
@@ -67,6 +77,7 @@ var pikachudoAsh = new Pikachu();
 pikachudoAsh.recebeuAtaque();
 pikachudoAsh.hp = 5000;
 pikachudoAsh.atacar();
+pikachudoAsh.exibeHP();
 console.log(pikachudoAsh.hp);
 
 //const pikachudoAsh = new Pikachu('pikachu', 'eletrico')
